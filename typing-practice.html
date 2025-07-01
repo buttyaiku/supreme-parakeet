@@ -1,215 +1,220 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本語タイピング練習</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .question-area {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-        }
-        .input-area {
-            margin: 20px 0;
-        }
-        .romaji {
-            color: #666;
-            font-size: 0.9em;
-        }
-        #userInput {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-        }
-        #userInput:focus {
-            outline: none;
-            border-color: #4CAF50;
-        }
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 4px;
-        }
-        .stat-item {
-            text-align: center;
-        }
-        .correct {
-            color: #28a745;
-        }
-        .incorrect {
-            color: #dc3545;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result-message {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 4px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本語タイピング練習</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .question-area {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    .input-area {
+      margin: 20px 0;
+    }
+    .romaji {
+      color: #666;
+      font-size: 0.9em;
+    }
+    #userInput {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+    }
+    #userInput:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 4px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .correct {
+      color: #28a745;
+    }
+    .incorrect {
+      color: #dc3545;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result-message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>日本語タイピング練習</h1>
-        <div class="stats">
-            <div class="stat-item">
-                <div>正確率</div>
-                <div id="accuracy">0%</div>
-            </div>
-            <div class="stat-item">
-                <div>入力速度</div>
-                <div id="speed">0字/分</div>
-            </div>
-            <div class="stat-item">
-                <div>残り時間</div>
-                <div id="timer">60秒</div>
-            </div>
-        </div>
-        <div class="question-area">
-            <div id="question" style="font-size: 24px;"></div>
-            <div id="romaji" class="romaji"></div>
-        </div>
-        <div class="input-area">
-            <input type="text" id="userInput" placeholder="ここに入力してください" autocomplete="off">
-        </div>
-        <button id="startButton">スタート</button>
-        <div id="resultMessage" class="result-message"></div>
+  <div class="container">
+    <h1>日本語タイピング練習</h1>
+    <div class="stats">
+      <div class="stat-item">
+        <div>正確率</div>
+        <div id="accuracy">0%</div>
+      </div>
+      <div class="stat-item">
+        <div>入力速度</div>
+        <div id="speed">0字/分</div>
+      </div>
+      <div class="stat-item">
+        <div>残り時間</div>
+        <div id="timer">60秒</div>
+      </div>
     </div>
+    <div class="question-area">
+      <div id="question" style="font-size: 24px;"></div>
+      <div id="romaji" class="romaji"></div>
+    </div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="ここに入力してください" autocomplete="off">
+    </div>
+    <button id="startButton">スタート</button>
+    <div id="resultMessage" class="result-message"></div>
+  </div>
 
-    <script>
-        const words = [
-            { japanese: "こんにちは", romaji: "konnichiha" },
-            { japanese: "ありがとう", romaji: "arigatou" },
-            { japanese: "さようなら", romaji: "sayounara" },
-            { japanese: "おはよう", romaji: "ohayou" },
-            { japanese: "がんばって", romaji: "ganbatte" },
-            { japanese: "たのしい", romaji: "tanoshii" },
-            { japanese: "やさしい", romaji: "yasashii" },
-            { japanese: "おめでとう", romaji: "omedetou" },
-            { japanese: "いただきます", romaji: "itadakimasu" },
-            { japanese: "ごちそうさま", romaji: "gochisousama" }
-        ];
+  <script>
+    const words = [
+      { japanese: "こんにちは", romaji: "konnichiha" },
+      { japanese: "ありがとう", romaji: "arigatou" },
+      { japanese: "さようなら", romaji: "sayounara" },
+      { japanese: "おはよう", romaji: "ohayou" },
+      { japanese: "がんばって", romaji: "ganbatte" },
+      { japanese: "たのしい", romaji: "tanoshii" },
+      { japanese: "やさしい", romaji: "yasashii" },
+      { japanese: "おめでとう", romaji: "omedetou" },
+      { japanese: "いただきます", romaji: "itadakimasu" },
+      { japanese: "ごちそうさま", romaji: "gochisousama" }
+    ];
 
-        let currentWord = null;
-        let timer = null;
-        let timeLeft = 60;
-        let correctChars = 0;
-        let totalChars = 0;
-        let isGameActive = false;
+    let currentWord = null;
+    let timer = null;
+    let timeLeft = 60;
+    let correctChars = 0;
+    let totalChars = 0;
+    let isGameActive = false;
 
-        const questionElement = document.getElementById('question');
-        const romajiElement = document.getElementById('romaji');
-        const userInputElement = document.getElementById('userInput');
-        const accuracyElement = document.getElementById('accuracy');
-        const speedElement = document.getElementById('speed');
-        const timerElement = document.getElementById('timer');
-        const startButton = document.getElementById('startButton');
-        const resultMessage = document.getElementById('resultMessage');
+    const questionElement = document.getElementById('question');
+    const romajiElement = document.getElementById('romaji');
+    const userInputElement = document.getElementById('userInput');
+    const accuracyElement = document.getElementById('accuracy');
+    const speedElement = document.getElementById('speed');
+    const timerElement = document.getElementById('timer');
+    const startButton = document.getElementById('startButton');
+    const resultMessage = document.getElementById('resultMessage');
 
-        function getRandomWord() {
-            return words[Math.floor(Math.random() * words.length)];
+    function getRandomWord() {
+      if (words.length === 0) return null;
+      return words[Math.floor(Math.random() * words.length)];
+    }
+
+    function updateWord() {
+      currentWord = getRandomWord();
+      if (currentWord && currentWord.japanese && currentWord.romaji) {
+        questionElement.textContent = currentWord.japanese;
+        romajiElement.textContent = currentWord.romaji;
+        userInputElement.value = '';
+      } else {
+        questionElement.textContent = "問題の取得に失敗しました";
+        romajiElement.textContent = "";
+      }
+    }
+
+    function updateStats() {
+      const accuracy = totalChars === 0 ? 0 : Math.round((correctChars / totalChars) * 100);
+      const speed = Math.round((correctChars / (60 - timeLeft)) * 60) || 0;
+      accuracyElement.textContent = `${accuracy}%`;
+      speedElement.textContent = `${speed}字/分`;
+    }
+
+    function startGame() {
+      if (isGameActive) return;
+      isGameActive = true;
+      timeLeft = 60;
+      correctChars = 0;
+      totalChars = 0;
+      resultMessage.textContent = '';
+      userInputElement.disabled = false;
+      startButton.textContent = 'ゲーム中...';
+      updateWord();
+      userInputElement.focus();
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `${timeLeft}秒`;
+        updateStats();
+
+        if (timeLeft <= 0) {
+          endGame();
         }
+      }, 1000);
+    }
 
-        function updateWord() {
-            currentWord = getRandomWord();
-            questionElement.textContent = currentWord.japanese;
-            romajiElement.textContent = currentWord.romaji;
-            userInputElement.value = '';
-        }
+    function endGame() {
+      clearInterval(timer);
+      isGameActive = false;
+      userInputElement.disabled = true;
+      startButton.textContent = 'もう一度';
 
-        function updateStats() {
-            const accuracy = totalChars === 0 ? 0 : Math.round((correctChars / totalChars) * 100);
-            const speed = Math.round((correctChars / (60 - timeLeft)) * 60) || 0;
-            
-            accuracyElement.textContent = `${accuracy}%`;
-            speedElement.textContent = `${speed}字/分`;
-        }
+      const finalAccuracy = totalChars === 0 ? 0 : Math.round((correctChars / totalChars) * 100);
+      const finalSpeed = Math.round((correctChars / 60) * 60) || 0;
 
-        function startGame() {
-            if (isGameActive) return;
-            
-            isGameActive = true;
-            timeLeft = 60;
-            correctChars = 0;
-            totalChars = 0;
-            resultMessage.textContent = '';
-            userInputElement.disabled = false;
-            startButton.textContent = 'ゲーム中...';
-            updateWord();
-            userInputElement.focus();
+      resultMessage.textContent = 
+        `終了！ 正確率: ${finalAccuracy}%, 入力速度: ${finalSpeed}字/分`;
+      resultMessage.className = 'result-message correct';
+    }
 
-            timer = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = `${timeLeft}秒`;
-                updateStats();
+    userInputElement.addEventListener('input', (e) => {
+      if (!isGameActive || !currentWord) return;
 
-                if (timeLeft <= 0) {
-                    endGame();
-                }
-            }, 1000);
-        }
+      const input = e.target.value.trim();
+      const correct = currentWord.romaji;
 
-        function endGame() {
-            clearInterval(timer);
-            isGameActive = false;
-            userInputElement.disabled = true;
-            startButton.textContent = 'もう一度';
-            
-            const finalAccuracy = Math.round((correctChars / totalChars) * 100) || 0;
-            const finalSpeed = Math.round((correctChars / 60) * 60) || 0;
-            
-            resultMessage.textContent = 
-                `終了！ 正確率: ${finalAccuracy}%, 入力速度: ${finalSpeed}字/分`;
-            resultMessage.className = 'result-message correct';
-        }
+      totalChars++;
 
-        userInputElement.addEventListener('input', (e) => {
-            if (!isGameActive) return;
+      if (input === correct) {
+        correctChars += input.length;
+        updateWord();
+      }
 
-            const input = e.target.value;
-            const correct = currentWord.romaji;
-            
-            totalChars++;
-            if (input === correct) {
-                correctChars += input.length;
-                updateWord();
-            }
-            
-            updateStats();
-        });
+      updateStats();
+    });
 
-        startButton.addEventListener('click', startGame);
-        userInputElement.disabled = true;
-    </script>
+    startButton.addEventListener('click', startGame);
+    userInputElement.disabled = true;
+  </script>
 </body>
 </html>
