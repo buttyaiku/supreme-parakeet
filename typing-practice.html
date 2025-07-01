@@ -108,16 +108,118 @@
 
   <script>
     const words = [
-      { japanese: "こんにちは", romaji: "konnichiha" },
-      { japanese: "ありがとう", romaji: "arigatou" },
-      { japanese: "さようなら", romaji: "sayounara" },
-      { japanese: "おはよう", romaji: "ohayou" },
-      { japanese: "がんばって", romaji: "ganbatte" },
-      { japanese: "たのしい", romaji: "tanoshii" },
-      { japanese: "やさしい", romaji: "yasashii" },
-      { japanese: "おめでとう", romaji: "omedetou" },
-      { japanese: "いただきます", romaji: "itadakimasu" },
-      { japanese: "ごちそうさま", romaji: "gochisousama" }
+const headlines = [
+  {
+    text: "Who are the welfare bill rebels? Find out how your MP voted",
+    translation: "福祉法案に反対した議員は誰？あなたの議員の投票結果をチェック",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Three former bosses of Lucy Letby arrested on suspicion of gross negligence manslaughter",
+    translation: "ルーシー・レットビーの元上司3人が重大過失致死の疑いで逮捕",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "UK sees hottest day of 2025 as heatwave peaks",
+    translation: "2025年最も暑い日を記録、熱波がピークに",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Family pay tribute to girl, 7, killed by falling tree",
+    translation: "倒木で亡くなった7歳少女に家族が追悼の意",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "US Senate Republicans narrowly pass Trump's 'big, beautiful' bill",
+    translation: "米上院、トランプ氏の「大きく美しい」法案を僅差で可決",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "M&S should be 'fully online' within four weeks, boss says",
+    translation: "M&Sは4週間以内に完全オンライン化へと社長が発言",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "British teenager tells Georgia court she was tortured into smuggling drugs",
+    translation: "英ティーン、ジョージアの法廷で薬物密輸を強要されたと証言",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Trump threatens to set Doge on Musk as pair feud again over budget plan",
+    translation: "トランプ氏、予算案を巡る対立でマスク氏にドージをけしかけると発言",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Small boat crossings in first half of year up 48%",
+    translation: "小型ボートでの渡航が年初から48%増加",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Millions of websites to get 'game-changing' AI bot blocker",
+    translation: "数百万のサイトに画期的なAIボット対策が導入へ",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Will Dalai Lama reveal succession plan as he turns 90?",
+    translation: "ダライ・ラマ、90歳で後継計画を発表するのか？",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "BTS are back: K-pop band confirm new album and tour",
+    translation: "BTS復帰、新アルバムとツアーを発表",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "What do the Royals spend their money on?",
+    translation: "王室は何にお金を使っているのか？",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Police reflect on Sarah Payne's murder 25 years on",
+    translation: "サラ・ペイン事件から25年、警察が振り返る",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Is RFK Jr's divisive plan to Make America Healthy Again fearmongering - or revolutionary?",
+    translation: "RFKジュニアの健康改革計画は扇動か革命か？",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Chief rabbi attacks BBC for airing 'vile Jew hate' at Glastonbury",
+    translation: "チーフラビ、BBCのグラストンベリー放送に抗議「ユダヤ人ヘイト」",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Father jumps off Disney cruise ship to save daughter who fell overboard",
+    translation: "父親、船から落ちた娘を救うためディズニークルーズから飛び込む",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "'Notable' rise in dads over 60 in England and Wales",
+    translation: "イングランドとウェールズで60歳超の父親が増加",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Outcry after Algeria sentences French sports journalist to seven years in jail",
+    translation: "アルジェリア、仏スポーツ記者に懲役7年判決で非難の声",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "House prices see biggest monthly fall for over two years",
+    translation: "住宅価格、2年以上ぶりの大幅下落",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "Danish women to face conscription by lottery",
+    translation: "デンマーク、女性も抽選で徴兵対象に",
+    link: "https://www.bbc.com/news"
+  },
+  {
+    text: "TSB name could disappear from UK in Santander deal",
+    translation: "サンタンデールの買収でTSBの名称が英国から消える可能性",
+    link: "https://www.bbc.com/news"
+  }
+];
     ];
 
     let currentWord = null;
